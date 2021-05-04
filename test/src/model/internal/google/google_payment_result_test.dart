@@ -1,0 +1,27 @@
+import 'package:flutter_test/flutter_test.dart';
+
+// TODO: import 'package:flutter_pay/flutter_pay.dart'; later, currently doesn't compile.
+import 'package:flutter_pay/src/model/internal/internal.dart';
+
+void main() {
+  group('$GooglePaymentData', () {
+    test('toJson', () {
+      expect(
+        GooglePaymentData(
+          apiVersion: 1,
+          apiVersionMinor: 2,
+          email: 'email',
+          paymentMethodData: GooglePaymentMethodData(),
+          shippingAddress: GoogleAddress(),
+        ).toJson(),
+        {
+          'apiVersion': 1,
+          'apiVersionMinor': 2,
+          'email': 'email',
+          'paymentMethodData': {},
+          'shippingAddress': {}
+        },
+      );
+    });
+  });
+}
